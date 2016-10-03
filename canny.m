@@ -1,10 +1,19 @@
-function im = canny(noiseLevel, param)
+function im = canny(noiseLevel)
 
-F = im2double(imread('chest.pgm'));
+F = imread('chest.pgm');
 
-F2 = imnoise(F,'gaussian', noiseLevel);
-F2 = edge(F2,'canny',param);
+param = [4 8];
+noise_levels = [0.01];
+smoothing = 2;
 
-imwrite(F2,sprintf('outputCanny%0.2f_%0.2f_%0.2f.pgm', noiseLevel, param(1),param(2)));
+for noise = noise_levels
+    figure
+    Fn = imnoise(F, 'gaussian', 0, noise);
+ 
+    
+    F2 = edge(Fn,'canny', param, smoothing);
+    imshow(F2);
+    title(sprintf('threshold low: %d high: %d; noise = %d; smoothing = %d', param(1), param(2), noise, smoothing));
+ end
 
 end

@@ -1,15 +1,15 @@
 function a = ex1()
 
 F = im2double(imread('chest.pgm'));
-noise_levels = [0.1, 0.01, 0.001];
+noise_levels = [0.002];
 
 close all
 
 for noise = noise_levels
   figure
   %title(sprintf('noise level = %d', noise))
-  
-  Fn = imnoise(F, 'gaussian', 0, noise);
+  Fn = F
+  %Fn = imnoise(F, 'gaussian', 0, noise);
   %imwrite(Fn, sprintf('noise%d.pgm', noise));
   
   subplot(2,2,1);
