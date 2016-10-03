@@ -8,8 +8,7 @@ close all
 for noise = noise_levels
   figure
   %title(sprintf('noise level = %d', noise))
-  Fn = F
-  %Fn = imnoise(F, 'gaussian', 0, noise);
+  Fn = imnoise(F, 'gaussian', 0, noise);
   %imwrite(Fn, sprintf('noise%d.pgm', noise));
   
   subplot(2,2,1);

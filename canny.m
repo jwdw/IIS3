@@ -4,7 +4,7 @@ F = imread('chest.pgm');
 
 param = [4 8];
 noise_levels = [0.01];
-smoothing = 2;
+smoothing = 2.1;
 
 for noise = noise_levels
     figure
